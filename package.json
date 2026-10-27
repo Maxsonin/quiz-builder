@@ -1,14 +1,15 @@
 {
   "name": "quiz-builder",
+  "private": true,
   "scripts": {
     "bootstrap": "pnpm install && pnpm --filter backend db:deploy && pnpm --filter backend db:seed",
     "dev": "pnpm -r --parallel dev",
     "build": "pnpm -r build",
     "start": "pnpm -r --parallel start",
     "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "test": "pnpm -r test"
+    "format:check": "prettier --check ."
   },
   "devEngines": {
     "packageManager": {
@@ -21,6 +22,5 @@
   "devDependencies": {
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1"
-  },
-  "private": true
+  }
 }

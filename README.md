@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- pnpm (`npm i -g pnpm`)
+- [pnpm](https://pnpm.io/installation)
 - Docker (for PostgreSQL)
 
 ## Getting started
@@ -35,4 +35,10 @@
 - Frontend: http://localhost:3000
 - API: http://localhost:4000
 
-To create quiz, using nav-bar go to "Create". There you can create a quiz and when you a ready, click "Create quiz" and it will redirect you to a newly created quiz in read only mode.
+## Quiz Creation
+
+To create a quiz:
+
+1. Click "Create" in the navigation bar.
+2. Add a title and some questions.
+3. Click "Create quiz". You'll be redirected to the new quiz in read-only mode.

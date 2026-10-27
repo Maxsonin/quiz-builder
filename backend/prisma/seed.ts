@@ -17,7 +17,7 @@ async function main() {
       title: 'General knowledge',
       questions: {
         create: [
-          { order: 0, type: 'BOOLEAN', text: 'The Earth orbits the Sun', answer: true },
+          { order: 0, type: 'BOOLEAN', text: 'The Earth orbits the Sun?', answer: true },
           { order: 1, type: 'INPUT', text: 'What is the capital of France?', answer: 'Paris' },
           {
             order: 2,
