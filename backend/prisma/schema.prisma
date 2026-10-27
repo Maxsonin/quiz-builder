@@ -6,3 +6,33 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+enum QuestionType {
+  BOOLEAN
+  INPUT
+  CHECKBOX
+}
+
+model Quiz {
+  id        Int        @id @default(autoincrement())
+  title     String
+  createdAt DateTime   @default(now())
+  questions Question[]
+}
+
+// For simplicity's sake, we use JSON instead of a normalized design with a separate Option table.
+// If we ever need statistics or other option-level queries, we would move to a normalized design.
+model Question {
+  id      Int          @id @default(autoincrement())
+  quizId  Int
+  quiz    Quiz         @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  order   Int
+  type    QuestionType
+  text    String
+  /// CHECKBOX: [{ text, isCorrect }]
+  options Json?
+  /// BOOLEAN: true | false, INPUT: string
+  answer  Json?
+
+  @@index([quizId])
+}

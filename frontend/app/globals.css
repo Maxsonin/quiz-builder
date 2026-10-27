@@ -3,24 +3,39 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --card: #eff6ff;
+  --border: #dbeafe;
+  --muted: #64748b;
+  --primary: #2563eb;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none read-only:bg-card focus:border-primary;
+  }
+
+  .btn {
+    @apply rounded-md border border-border px-3 py-1.5 text-sm hover:bg-card disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:opacity-90 disabled:opacity-50;
+  }
 }
