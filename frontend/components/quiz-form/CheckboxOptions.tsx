@@ -19,6 +19,7 @@ export function CheckboxOptions({ index }: { index: number }) {
           <div className="flex items-center gap-2">
             <input
               type="checkbox"
+
               aria-label={`Option ${i + 1} is correct`}
               {...register(`questions.${index}.options.${i}.isCorrect`)}
             />
@@ -31,7 +32,7 @@ export function CheckboxOptions({ index }: { index: number }) {
             <button
               type="button"
               aria-label={`Remove option ${i + 1}`}
-              className="btn"
+              className="btn self-stretch border-red-200 text-red-600 duration-300 hover:bg-red-50"
               onClick={() => options.remove(i)}
             >
               ✕

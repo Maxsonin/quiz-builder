@@ -18,8 +18,8 @@ export function BooleanAnswer({ index }: { index: number }) {
             {value === 'true' ? 'True' : 'False'}
           </label>
         ))}
+        <FieldError message={errors.questions?.[index]?.booleanAnswer?.message} />
       </div>
-      <FieldError message={errors.questions?.[index]?.booleanAnswer?.message} />
     </div>
   );
 }

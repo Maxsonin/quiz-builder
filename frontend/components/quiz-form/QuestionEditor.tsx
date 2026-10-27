@@ -16,11 +16,15 @@ export function QuestionEditor({ index, onRemove }: Props) {
   const type = useWatch({ control, name: `questions.${index}.type` });
 
   return (
-    <section className="space-y-3 rounded-lg border border-border p-4">
+    <div className="space-y-3 rounded-lg border border-border bg-background p-4">
       <div className="flex items-center justify-between gap-3">
         <h2 className="text-sm font-semibold">Question {index + 1}</h2>
         {onRemove && (
-          <button type="button" className="text-sm text-red-600 hover:underline" onClick={onRemove}>
+          <button
+            type="button"
+            className="text-sm text-red-600/40 transition-colors duration-300 hover:text-red-600 focus-visible:text-red-600"
+            onClick={onRemove}
+          >
             Remove
           </button>
         )}
@@ -48,6 +52,6 @@ export function QuestionEditor({ index, onRemove }: Props) {
       {type === 'BOOLEAN' && <BooleanAnswer index={index} />}
       {type === 'INPUT' && <TextAnswer index={index} />}
       {type === 'CHECKBOX' && <CheckboxOptions index={index} />}
-    </section>
+    </div>
   );
 }

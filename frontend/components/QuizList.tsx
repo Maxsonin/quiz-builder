@@ -20,23 +20,23 @@ export function QuizList({ initialQuizzes }: { initialQuizzes: QuizSummary[] }) 
 
   if (quizzes.length === 0) {
     return (
-      <p className="text-muted">
-        No quizzes yet.{' '}
-        <Link href="/create" className="text-primary hover:underline">
-          Create one
+      <div className="flex flex-col items-center gap-3 rounded-lg border border-dashed border-border bg-background px-6 py-12 text-center">
+        <p className="text-lg font-semibold">No quizzes yet</p>
+        <p className="text-sm text-muted">Create your first quiz to see it here.</p>
+        <Link href="/create" className="btn-primary">
+          Create quiz
         </Link>
-        .
-      </p>
+      </div>
     );
   }
 
   return (
     <>
       {error && <p className="mb-3 text-sm text-red-600">{error}</p>}
-      <ul className="divide-y divide-border rounded-lg border border-border">
+      <ul className="divide-y divide-border rounded-lg border border-border bg-background">
         {quizzes.map((quiz) => (
           <li key={quiz.id} className="flex items-center justify-between gap-3 p-4">
-            <Link href={`/quizzes/${quiz.id}`} className="min-w-0 flex-1 hover:underline">
+            <Link href={`/quizzes/${quiz.id}`} className="min-w-0 flex-1">
               <span className="block truncate font-medium">{quiz.title}</span>
               <span className="text-sm text-muted">
                 {quiz.questionCount} {quiz.questionCount === 1 ? 'question' : 'questions'}
@@ -45,7 +45,7 @@ export function QuizList({ initialQuizzes }: { initialQuizzes: QuizSummary[] }) 
             <button
               type="button"
               aria-label={`Delete ${quiz.title}`}
-              className="rounded-md p-2 text-muted hover:bg-card hover:text-red-600"
+              className="rounded-md p-2 text-muted duration-300 hover:bg-card hover:text-red-600"
               onClick={() => handleDelete(quiz.id)}
             >
               <TrashIcon />

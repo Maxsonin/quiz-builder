@@ -43,12 +43,14 @@ export function QuizForm() {
     <FormProvider {...form}>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
         <div>
-          <label htmlFor="title" className="mb-1 block text-sm font-medium">
-            Quiz title
+          <label htmlFor="title" className="mb-1 ml-2 block text-xl font-bold">
+            Quiz Title
           </label>
           <input id="title" type="text" className="input" {...register('title')} />
           <FieldError message={errors.title?.message} />
         </div>
+
+        <hr className="mx-8 my-3 border-border" />
 
         {questions.fields.map((field, index) => (
           <QuestionEditor

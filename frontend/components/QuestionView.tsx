@@ -5,7 +5,7 @@ export function QuestionView({ question, number }: { question: Question; number:
   const name = `question-${question.id}`;
 
   return (
-    <li className="space-y-3 rounded-lg border border-border p-4">
+    <li className="space-y-3 rounded-lg border border-border bg-background p-4">
       <p className="font-medium">
         {number}. {question.text}
       </p>

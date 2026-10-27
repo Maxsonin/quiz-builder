@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 import { QuestionView } from '@/components/QuestionView';
+import { Spinner } from '@/components/Spinner';
 import { ApiError, getQuiz } from '@/services/api';
 
 export default function QuizPage({ params }: PageProps<'/quizzes/[id]'>) {
@@ -10,7 +11,7 @@ export default function QuizPage({ params }: PageProps<'/quizzes/[id]'>) {
       <Link href="/quizzes" className="mb-4 inline-block text-sm text-muted hover:underline">
         ← All quizzes
       </Link>
-      <Suspense fallback={<p className="text-muted">Loading…</p>}>
+      <Suspense fallback={<Spinner />}>
         <QuizDetail params={params} />
       </Suspense>
     </>
